@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsors | BMES Memphis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a3a52;
+            --accent: #c8102e;
+            --light: #f8f9fa;
+            --text: #2c3e50;
+            --border: #e1e8ed;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--light);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5f7e 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 4rem 0 2.5rem;
+            color: var(--primary);
+        }
+        
+        .tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .tier {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tier::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .tier:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+        
+        .tier:hover::before {
+            transform: translateX(0);
+        }
+        
+        .tier-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tier-price {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .tier-benefits {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+        
+        .tier-benefits li {
+            padding: 0.6rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        
+        .tier-benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            align-items: center;
+        }
+        
+        .sponsor-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            min-height: 140px;
+        }
+        
+        .sponsor-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            border-color: var(--accent);
+        }
+        
+        .sponsor-card img {
+            max-width: 100%;
+            max-height: 80px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(30%);
+            transition: filter 0.3s ease;
+        }
+        
+        .sponsor-card:hover img {
+            filter: grayscale(0%);
+        }
+        
+        .cta {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            margin: 4rem 0;
+            border: 2px solid var(--border);
+        }
+        
+        .cta h3 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--text);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, #a00d26 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(200, 16, 46, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(200, 16, 46, 0.4);
+        }
+        
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tiers {
+                grid-template-columns: 1fr;
+            }
+            
+            .sponsors-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>Support Our Mission</h1>
+            <p class="subtitle">Partner with BMES Memphis to advance biomedical engineering education and innovation</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <p>The Biomedical Engineering and Medical & Biological Sciences Society at the University of Memphis brings together students passionate about advancing healthcare through engineering and science. Your sponsorship enables us to provide workshops, networking events, research opportunities, and professional development for the next generation of biomedical innovators.</p>
+        </div>
+
+        <h2 class="section-title">Sponsorship Tiers</h2>
+        
+        <div class="tiers">
+            <div class="tier">
+                <div class="tier-name">Bronze</div>
+                <div class="tier-price">$500</div>
+                <ul class="tier-benefits">
+                    <li>Logo displayed on website</li>
+                    <li>Recognition at chapter meetings</li>
+                    <li>Social media recognition</li>
+                    <li>Name in event programs</li>
+                </ul>
+            </div>
+            
+            <div class="tier">
+                <div class="tier-name">Silver</div>
+                <div class="tier-price">$1,000</div>
+                <ul class="tier-benefits">
+                    <li>All Bronze benefits, plus:</li>
+                    <li>Logo on event materials</li>
+                    <li>Logo on chapter t-shirts</li>
+                    <li>Recruiting table at major events</li>
+                    <li>Early access to résumé book</li>
+                </ul>
+            </div>
+            
+            <div class="tier">
+                <div class="tier-name">Gold</div>
+                <div class="tier-price">$2,500+</div>
+                <ul class="tier-benefits">
+                    <li>All Silver benefits, plus:</li>
+                    <li>Featured mention in press releases</li>
+                    <li>10-minute presentation opportunity</li>
+                    <li>Private networking session</li>
+                    <li>Custom sponsorship package available</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title">Our Valued Sponsors</h2>
+        
+        <div class="sponsors-grid">
+            <!-- INSTRUCTIONS FOR ADDING SPONSORS:
+            
+            1. Save your sponsor logo images in the same folder as this HTML file
+               Name them something simple like: "stryker-logo.png", "medtronic-logo.png", etc.
+            
+            2. Copy one of the sponsor-card blocks below
+            3. Replace the placeholder:
+               - Change src="sponsor-logo.png" to your actual filename
+               - Change href="https://www.example.com" to the sponsor's website
+               - Change alt="Sponsor Name" to the sponsor's name
+            
+            Example:
+            <a href="https://www.stryker.com" class="sponsor-card" target="_blank">
+                <img src="stryker-logo.png" alt="Stryker">
+            </a>
+            -->
+            
+            <a href="https://www.example.com" class="sponsor-card" target="_blank">
+                <img src="sponsor-logo-1.png" alt="Sponsor Name 1">
+            </a>
+            
+            <a href="https://www.example.com" class="sponsor-card" target="_blank">
+                <img src="sponsor-logo-2.png" alt="Sponsor Name 2">
+            </a>
+            
+            <a href="https://www.example.com" class="sponsor-card" target="_blank">
+                <img src="sponsor-logo-3.png" alt="Sponsor Name 3">
+            </a>
+            
+            <a href="https://www.example.com" class="sponsor-card" target="_blank">
+                <img src="sponsor-logo-4.png" alt="Sponsor Name 4">
+            </a>
+            
+            <a href="https://www.example.com" class="sponsor-card" target="_blank">
+                <img src="sponsor-logo-5.png" alt="Sponsor Name 5">
+            </a>
+            
+            <a href="https://www.example.com" class="sponsor-card" target="_blank">
+                <img src="sponsor-logo-6.png" alt="Sponsor Name 6">
+            </a>
+            
+            <!-- Add more sponsor cards by copying the block above -->
+        </div>
+
+        <div class="cta">
+            <h3>Interested in Partnering With Us?</h3>
+            <p>We'd love to discuss how we can work together to support biomedical engineering students at the University of Memphis.</p>
+            <a href="mailto:your-email@memphis.edu" class="btn">Contact Us</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 BMES Memphis Chapter | University of Memphis</p>
+    </footer>
+</body>
+</html>
